@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "hb_hero_4V7yTm": {
+      "type": "hb-hero",
+      "settings": {
+        "main_image": "shopify://shop_images/bg_image2.png",
+        "bg_img": "shopify://shop_images/shape2.png",
+        "subheading": "100% Pure oganic Foods",
+        "heading": "Organic Veggies &amp; Foods You Cook <span>Healthy</span>",
+        "side_img": "shopify://shop_images/apple.png",
+        "right_img": "shopify://shop_images/apricot.png"
+      }
+    },
+    "hb_category_JKgfmL": {
+      "type": "hb-category",
+      "settings": {
+        "subtitle": "Fresh from farm",
+        "title": "Popular Categories"
+      }
+    },
+    "hb_feature_mHFAPB": {
+      "type": "hb-feature",
+      "blocks": {
+        "div_VW9rDj": {
+          "type": "div",
+          "settings": {
+            "slider_img": "shopify://shop_images/fruit2.jpg"
+          }
+        },
+        "div_nNzkHq": {
+          "type": "div",
+          "settings": {
+            "slider_img": "shopify://shop_images/fruit3.webp"
+          }
+        },
+        "div_KUYRDb": {
+          "type": "div",
+          "settings": {
+            "slider_img": "shopify://shop_images/fruit.webp"
+          }
+        },
+        "features_mkRdqq": {
+          "type": "features",
+          "settings": {
+            "feature_img": "shopify://shop_images/farm2.jpg",
+            "feature_title": "Vegetables"
+          }
+        },
+        "features_gm6de9": {
+          "type": "features",
+          "settings": {
+            "feature_img": "shopify://shop_images/fruit6.jpg",
+            "feature_title": "Fruits"
+          }
+        }
+      },
+      "block_order": [
+        "div_VW9rDj",
+        "div_nNzkHq",
+        "div_KUYRDb",
+        "features_mkRdqq",
+        "features_gm6de9"
+      ],
+      "settings": {}
+    },
+    "hb_deal_mHTG78": {
+      "type": "hb-deal",
+      "blocks": {
+        "deal_wcUK9d": {
+          "type": "deal",
+          "settings": {
+            "card_img": "shopify://shop_images/deals1.png",
+            "title": "Get more than 30% off",
+            "btn_text": "shop now",
+            "btn_url": ""
+          }
+        },
+        "deal_nk3TrR": {
+          "type": "deal",
+          "settings": {
+            "card_img": "shopify://shop_images/deals3.png",
+            "title": "Get more than 30% off",
+            "btn_text": "shop now",
+            "btn_url": ""
+          }
+        },
+        "deal_xWDBi8": {
+          "type": "deal",
+          "settings": {
+            "card_img": "shopify://shop_images/deals2.png",
+            "title": "Get more than 30% off",
+            "btn_text": "shop now",
+            "btn_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "deal_wcUK9d",
+        "deal_nk3TrR",
+        "deal_xWDBi8"
+      ],
+      "settings": {}
+    },
+    "hb_collection_product_NakNYc": {
+      "type": "hb-collection-product",
+      "settings": {
+        "slogan": "Fresh and Pure organic Foods",
+        "title": "Fresh Categoriees Produce",
+        "para": "<p>Apparently we had reached a great height in the atmosphere, for the sky was a</p>"
+      }
+    }
+  },
+  "order": [
+    "featured_collection",
+    "hb_hero_4V7yTm",
+    "hb_category_JKgfmL",
+    "hb_feature_mHFAPB",
+    "hb_deal_mHTG78",
+    "hb_collection_product_NakNYc"
+  ]
+}

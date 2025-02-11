@@ -1,0 +1,104 @@
+{{"hb-common.css" | asset_url | stylesheet_tag}}
+{{"hb-feature.css" | asset_url | stylesheet_tag}}
+<div class="hb_feature" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+    <div class="page-width">
+        <div class="hb_feature__wrapper">
+            <div class="my-swiper">
+                <div class="swiper hb_feature__slider">
+                    <div class="swiper-wrapper">
+                        {%- for block in section.blocks -%}
+                          <div class="swiper-slide">
+                            {%- if block.settings.slider_img != blank -%}
+                              <div class="hb_swiper__img">
+                                  {{ block.settings.slider_img | image_url: width: 1200 | image_tag }}
+                              </div>
+                            {%- endif -%}
+                          </div>
+                        {%- endfor -%}
+                    </div>
+                </div>
+                <div id="swiper-pagination" class="swiper-pagination"></div>
+            </div>
+              <div class="hb_feature__banners hb-flex">
+                  {%- for block in section.blocks -%}
+                      {%- if block.type == "features"-%}
+                          <div class="hb_feature__banner">
+                              {%- if block.settings.feature_img != blank -%}
+                                  <div class="hb_feature__banner--img">
+                                      {{ block.settings.feature_img | image_url: width: 1200 | image_tag }}
+                                  </div>
+                              {%- endif -%}
+                              <div class="hb_feature__banner--content">
+                                  {%- if block.settings.feature_title != blank -%}
+                                      <h3 class="hb_feature__banner--title">{{ block.settings.feature_title }}</h3>
+                                  {%- endif -%}
+                              </div>
+                          </div>
+                      {%- endif -%}
+                  {%- endfor -%}
+              </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Features",
+    "settings": [
+      
+    ],
+    "blocks": [
+      {
+        "name": "Slider Image",
+        "type": "div",
+        "settings": [
+           {
+             "type": "image_picker",
+             "id": "slider_img",
+             "label": "Select Image"
+           }
+        ]
+      },
+      {
+        "name": "Features",
+        "type": "features",
+        "settings": [
+           {
+             "type": "image_picker",
+             "id": "feature_img",
+             "label": "Select Image"
+           },
+           {
+             "type": "text",
+             "id": "feature_title",
+             "label": "Title"
+           },
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Features",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".swiper", {
+  centeredSlides: true,
+
+
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  }
+});
+
+</script>

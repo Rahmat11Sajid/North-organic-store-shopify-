@@ -1,0 +1,88 @@
+{{ "hb-common.css" |asset_url | stylesheet_tag }}
+{{ "hb-collection-product.css" |asset_url | stylesheet_tag }}
+<div class="hb_show-products" data-aos="zoom-out-right" data-aos-duration="2000">
+    <div class="page-width">
+        <div class="hb_show-products__wrapper">
+            <div class="hb_show-products__collections--content">
+                <div class="hb_show-products__collections--slogan">
+                    {{ section.settings.slogan }}
+                </div>
+                <h2 class="hb_show-products__collection-title">
+                    {{ section.settings.title }}
+                </h2>
+                <div class="hb_show-products__collection--para">
+                    {{ section.settings.para }}
+                </div>
+                {%- for collection in collections -%}
+                    <a class="hb_show-products__link" href="#collections">
+                        <div class="hb_show-products__collections">
+                            <div class="hb_show-products__collections--img">
+                                {{ collection.featured_image | image_url: width: 100 | image_tag }}
+                            </div>
+                            <p class="hb_show-products__collection--title">{{ collection.title }}</p>
+                            <span class="hb_show-products__collections--size">
+                                {{ collection.all_products_count }}
+                            </span>
+                        </div>
+                    </a>
+                {%- endfor -%}
+            </div>
+            <div class="hb_show-products__product">
+                <div class="hb_show-products__product--wrapper" id="collections">
+                    {%- for collection in collections limit: 3 -%}
+                        {%- for product in collection.products limit: 6 -%}
+                            <div class="hb_show-products__product--content">
+                                <div class="hb_show-product__product--img">
+                                  {{ product.featured_image | image_url: width: 400 | image_tag }}
+                                </div>
+                                <div class="hb_show-product__product--detail">
+                                  {%- if product.type != blank -%}
+                                      <div class="hb_show-product__product--type">
+                                          {{ product.type }}
+                                      </div>
+                                  {%- endif -%}
+                                  <h3 class="hb_show-product__product--title">
+                                      {{ product.title }}
+                                  </h3>
+                                  <p>{{ product.price | money_without_trailing_zeros }}</p>
+                                </div>
+                            </div>
+                        {%- endfor -%} 
+                        {% for collection in product.collections %}
+                            {{ collection.title }}
+                        {% endfor %}
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Show collection products",
+    "settings": [
+      {
+        "type": "text",
+        "id": "slogan",
+        "label": "Slogan"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "para",
+        "label": "Paragraph"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Show collection products",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

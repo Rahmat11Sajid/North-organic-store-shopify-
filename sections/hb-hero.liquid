@@ -1,0 +1,84 @@
+{{"hb-common.css" | asset_url | stylesheet_tag}}
+{{"hb-hero.css" | asset_url | stylesheet_tag}}
+<div class="hb_hero">
+    {%- if section.settings.main_image != blank -%}
+        <div class="hb_hero__image">
+            {{ section.settings.main_image | image_url: width: 2000 | image_tag }}
+        </div>
+    {%- endif -%}
+    <div class="page-width">
+        <div class="hb_hero__wrapper">
+            <div class="hb_hero__subheading " data-aos="fade-up",data-aos-duration="3000">
+                {%- if section.settings.subheading != blank -%}
+                    <div class="hb_hero__subheading--img">
+                        {{ section.settings.bg_img | image_url: width: 600 | image_tag }}
+                    </div>
+                    <h3 class="hb_hero__subheading--text">{{ section.settings.subheading }}</h3>
+                {%- endif -%}
+            </div>
+            <h1 class="hb_hero__heading">
+                {{ section.settings.heading }}
+            </h1>
+            <div class="hb_hero__search hb-flex">
+                <div class="hb_hero__search--input">
+                    <input type="text" placeholder="Search Product">
+                </div>
+                <span class="hb_hero__search--text">Search a Category</span>
+            </div>
+        </div>
+    </div>
+    {%- if section.settings.side_img != blank -%}
+        <div class="hb_hero__banner--side-img">
+            {{ section.settings.side_img | image_url: width: 600 | image_tag }}
+        </div>
+    {%- endif -%}
+    {%- if section.settings.right_img != blank -%}
+        <div class="hb_hero__banner--side-img2">
+            {{ section.settings.right_img | image_url: width: 600 | image_tag }}
+        </div>
+    {%- endif -%}
+</div>
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Main image"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_img",
+        "label": "Background image of subtitle"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "html",
+        "id": "heading",
+        "label": "Main Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "side_img",
+        "label": "Left side Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "right_img",
+        "label": "Left side Image"
+      },
+    ],
+    "presets": [
+      {
+        "name": "Hero Banner",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

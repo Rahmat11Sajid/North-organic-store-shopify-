@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+img, svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+:root {
+    --main-color: #1d1d1d;
+    --text-secondary-color: #f6efef;
+    --color-green: #81c408;
+}
+
+.hb-flex {
+    display: flex;
+    align-items: center;
+}

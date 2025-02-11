@@ -1,0 +1,87 @@
+{{ "hb-common.css" | asset_url | stylesheet_tag }}
+{{ "hb-header.css" | asset_url | stylesheet_tag }}
+<header class="hb_header">
+    <div class="page-width">
+        <div class="hb_header__wrapper hb-flex">
+            {%- if section.settings.header_logo != blank -%}
+                <a href="{{ routes.root_url }}">
+                    <div class="hb_header__logo">
+                        {{ section.settings.header_logo | image_url: width: 400 | image_tag }}
+                    </div>
+                </a>
+            {%- endif -%}
+            <nav class="hb_header__nav">
+                <ul class="hb_header__nav-list hb-flex">
+                    {%- for link in linklists[section.settings.menu].links -%}
+                        <li class="hb_header__nav-items">
+                            <a class="hb_header__nav--item" href="{{ link.url }}"> {{ link.title }} </a>
+                            {%- if link.links.size > 0 -%}
+                                {%- for sublink in link.links -%}
+                                    <ul class="hb_header__nav--submenu">
+                                        <li>
+                                            <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                            {%- if sublink.links.size > 0 -%}
+                                                {%- for lastlink in sublink.links -%}
+                                                <li><a href="{{ lastlink.url }}"> {{ lastlink.title }} </a></li>
+                                                {%- endfor -%}
+                                            {%- endif -%}
+                                        </li>
+                                    </ul>
+                                {%- endfor -%}
+                            {%- endif -%}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+                
+            </nav>
+            <div class="hb_header__icons hb-flex">
+                {%- for block in section.blocks -%}
+                    {%- if block.settings.header_search != blank -%}
+                        <div class="hb_header__icons--search">
+                           {{ block.settings.header_search | image_url: width: 200 | image_tag }}
+                        </div>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</header>
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "header_logo",
+        "label": "Logo"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Choose menu"
+      },
+      
+    ],
+    "blocks": [
+      {
+        "name": "Icons",
+        "type": "section",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "header_search",
+                "label": "Search icon"
+            }
+            
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Header",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

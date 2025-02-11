@@ -1,0 +1,94 @@
+{{ "hb-common.css" | asset_url | stylesheet_tag }}
+{{ "hb-annocement.css" | asset_url | stylesheet_tag }}
+<div class="hb_annocement">
+    <div class="page-width">
+        <div class="hb_annocement__wrapper">
+            <div class="hb_annocement__info hb-flex">
+                <div class="hb_annocement__info--email hb-flex">
+                    {%- if section.settings.email_icon != blank -%}
+                        <div class="hb_annocement__info--email-icon">
+                            {{ section.settings.email_icon | image_url: width: 200 | image_tag }}
+                        </div>
+                    {%- endif -%}
+                    {%- if section.settings.email != blank -%}
+                        <a href="mailto:{{ shop.email }}" class="hb_annocement__info--email-text">{{ section.settings.email }}</a>
+                    {%- endif -%}
+                </div>
+                <div class="hb_annocement__address hb-flex">
+                    {%- if section.settings.address_icon != blank -%}
+                        <div class="hb_annocement__address--icon">
+                            {{ section.settings.address_icon | image_url: width: 100 | image_tag }}
+                        </div>
+                    {%- endif -%}
+                    {%- if section.settings.address_text -%}
+                        <p class="hb_annocement__address-text"> {{ section.settings.address_text }} </p>
+                    {%- endif -%}
+                </div>
+            </div>
+            <div class="hb_annocement__social-media hb-flex">
+                {%- for block in section.blocks -%}
+                    {%- if block.settings.media_icon != blank -%}
+                        <a href="{{ block.settings.media_link }}">
+                            <div class="hb_annocement__social-media--icon">
+                                {{ block.settings.media_icon | image_url: width: 200 | image_tag }}
+                            </div>
+                        </a>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Annocement",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "email_icon",
+        "label": "Email icon"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
+      },
+      {
+        "type": "image_picker",
+        "id": "address_icon",
+        "label": "Address icon"
+      },
+      {
+        "type": "textarea",
+        "id": "address_text",
+        "label": "Address"
+      },
+    ],
+    "blocks": [
+      {
+        "name": "Social media icons",
+        "type": "section",
+        "settings": [
+           {
+             "type": "image_picker",
+             "id": "media_icon",
+             "label": "Social media Icon"
+           },
+           {
+             "type": "url",
+             "id": "media_link",
+             "label": "Social media links"
+           },
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Annocement",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

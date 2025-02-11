@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "hb_annocement_bar_dBnAzD": {
+      "type": "hb-annocement-bar",
+      "blocks": {
+        "section_4Um68C": {
+          "type": "section",
+          "settings": {
+            "media_icon": "shopify://shop_images/benefit.png",
+            "media_link": "https://www.facebook.com"
+          }
+        },
+        "section_RELQew": {
+          "type": "section",
+          "settings": {
+            "media_icon": "shopify://shop_images/cart.png",
+            "media_link": "https://www.instagram.com"
+          }
+        }
+      },
+      "block_order": [
+        "section_4Um68C",
+        "section_RELQew"
+      ],
+      "settings": {
+        "email_icon": "shopify://shop_images/call-icon.png",
+        "email": "northorganicfoods@gmail.com",
+        "address_icon": "shopify://shop_images/annocement-icon.png",
+        "address_text": "1st floor sadpara road skardu"
+      }
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "hb_header_iG4HgV": {
+      "type": "hb-header",
+      "blocks": {
+        "section_3afGet": {
+          "type": "section",
+          "settings": {
+            "header_search": "shopify://shop_images/whatsapp-icon.png"
+          }
+        },
+        "section_3L8mE3": {
+          "type": "section",
+          "settings": {
+            "header_search": "shopify://shop_images/call-icon.png"
+          }
+        },
+        "section_9Pz9mH": {
+          "type": "section",
+          "settings": {
+            "header_search": "shopify://shop_images/whatsapp-icon.png"
+          }
+        }
+      },
+      "block_order": [
+        "section_3afGet",
+        "section_3L8mE3",
+        "section_9Pz9mH"
+      ],
+      "settings": {
+        "header_logo": "shopify://shop_images/logo_75d7a967-9657-4a54-9095-c6956d231805.png",
+        "menu": "northorganicfoods"
+      }
+    }
+  },
+  "order": [
+    "hb_annocement_bar_dBnAzD",
+    "header",
+    "hb_header_iG4HgV"
+  ]
+}

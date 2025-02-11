@@ -1,0 +1,76 @@
+{{"hb-common.css" | asset_url | stylesheet_tag}}
+{{"hb-collection.css" | asset_url | stylesheet_tag}}
+<div class="hb_collection">
+    <div class="page-width">
+        <div class="hb_collection__wrapper">
+            {%- for collection in collections  -%}
+                {%- for product in collection.products -%}
+                    <div class="hb_collection__items--container" href="{{ collection.url }}">
+                        <div class="hb_collection__items">
+                            {%- assign compare_price = product.compare_at_price -%}
+                            {%  assign price = product.price %}
+                            {%- if compare_price > price -%}
+                                {%- assign discount = compare_price | minus: price -%}
+                                {%- assign percentage = discount | times: 100 | divided_by: compare_price  -%}
+                                <div class="hb_collection__sell">
+                                    {{ percentage }}%
+                                </div>
+                            {%- endif -%}
+                            <a href="{{ collection.url }}" class="hb_collection__link">
+                                <div class="hb_collection__image">
+                                    {{ product.featured_image | image_url: width: 600 | image_tag  }}
+                                </div>
+                            </a>
+                            <h3 class="hb_collection__title">{{ product.title }}</h3>
+                            {%- if product.variants.size > 1 -%}
+                                <div class="hb_collection__variants">
+                                        {%- for option in product.options_with_values -%}
+                                            {{ option.name }} <br>
+                                            {%- for value in option.values -%}
+                                                {{ value.name }}
+                                            {%- endfor -%}
+                                            <br>
+                                        {%- endfor -%}
+                                </div>
+                                
+                            {%- endif -%}
+                            <div class="hb_collection__price">
+                                <p class="hb_collection__price-net">{{ product.price | money_without_trailing_zeros }}</p>
+                                {%- if compare_price != blank -%}
+                                    <p class="hb_collection__price-compare">{{ compare_price | money_without_trailing_zeros }}</p>
+                                {%- endif -%}
+                            </div>
+                            {%- if product.available -%}
+                                <form action="/cart/add">
+                                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                    <input type="hidden" name="quantity" value="1">
+                                    {% comment %} <input type="hidden" name="value"> {% endcomment %}
+                                    {% comment %} <a href="{{ product.url }}" class="hb_collection__btn--link"> {% endcomment %}
+                                    <button class="hb_collection__btn-add-cart">
+                                        Add to cart
+                                    </button>
+                                    {% comment %} </a> {% endcomment %}
+                                </form>
+                                {%- else -%}
+                                    <div class="hb_collection__btn-add-cart">
+                                        Sold out
+                                    </div>
+                            {%- endif -%}
+                            {%- if product.available -%}
+                                <a href="/cart ">
+                                    <div class="hb_collection__btn--buy">
+                                        Buy Now
+                                    </div>
+                                </a>
+                                {%- else -%}
+                                    <div class="hb_collection__btn--buy">
+                                        Pre Order
+                                    </div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                {%- endfor -%}
+            {%- endfor -%}
+        </div>
+    </div>
+</div>

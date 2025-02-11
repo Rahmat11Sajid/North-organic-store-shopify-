@@ -1,0 +1,70 @@
+{{"hb-common.css" | asset_url | stylesheet_tag }}
+{{"hb-category.css" | asset_url | stylesheet_tag }}
+<div class="hb_category" data-aos="fade-up" data-aos-duration="3000">
+    <div class="page-width">
+        <div class="hb_category__wrapper">
+            <div class="hb_category__content">
+                {%- if section.settings.subtitle != blank -%}
+                    <p class="hb_category__content--subtitle">{{ section.settings.subtitle }}</p>
+                {%- endif -%}
+                {%- if section.settings.title != blank -%}
+                    <h3 class="hb_category__content--title">
+                        {{ section.settings.title }}
+                    </h3>
+                {%- endif -%}
+            </div>
+            <div class="hb_category__products hb-flex">
+                {% comment %} {%- for block in section.blocks -%} {% endcomment %}
+                    {% comment %} <div class="hb_category__products--product">
+                        {%- if block.settings.product_img != blank -%}
+                            <div class="hb_category__product--img">
+                                {{ block.settings.product_img | image_url: width: 600 | image_tag }}
+                            </div>
+                        {%- endif -%}
+                        {%- if block.settings.product_name != blank -%}
+                            <div class="hb_category__product--name">{{ block.settings.product_name }}</div>
+                        {%- endif -%} 
+                    </div> {% endcomment %}
+
+                    {%- for collection in collections -%}
+                        <div class="hb_category__products--product">
+                            {%- if collection.featured_image != blank -%}
+                                <div class="hb_category__product--img">
+                                    {{ collection.featured_image | image_url: width: 600 | image_tag }}
+                                </div>
+                            {%- endif -%}
+                            {%- if collection.title != blank -%}
+                                <div class="hb_category__product--name">{{ collection.title }}</div>
+                            {%endif%}
+                        </div>
+                    {%- endfor -%}
+                {% comment %} {%- endfor -%} {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Category",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    
+    "presets": [
+      {
+        "name": "Category",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

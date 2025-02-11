@@ -1,0 +1,108 @@
+.hb_show-products {
+    margin-top: 50px;
+}
+.hb_show-products__wrapper {
+    display: flex;
+}
+.hb_show-products__collections--content {
+    background-color: #f7f7f7;
+    padding: 36px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    flex: 30%;
+}
+.hb_show-products__collections--slogan {
+    color: #7cc000;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+.hb_show-products__collection-title {
+    color: #292929;
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+.hb_show-products__collection--para {
+    color: #9c9c9c;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+}
+.hb_show-products__collections {
+    border-radius: 50px;
+    border: 1px solid #7cc000;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.hb_show-products__collections--img {
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+    overflow: hidden;
+}
+.hb_show-products__collection--title {
+    font-size: 16px;
+    font-weight: 500px;
+    line-height: 1.2;
+}
+.hb_show-products__collections--size {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #9c9c9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hb_show-products__product {
+    flex: 70%;
+    background: linear-gradient(to top, #f0efef, #81c408);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 1px;
+    overflow: hidden;
+}
+.hb_show-products__product--wrapper {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-between;
+}
+.hb_show-product__product--img {
+    max-width: 300px;
+    max-height: 120px;
+    aspect-ratio: 1/0.8;
+}
+.hb_show-products__link {
+    text-decoration: none;
+    color: #000;
+}
+.hb_show-product__product--type {
+    color: #fff;
+    background-color: #81c408;
+    border-radius: 50px;
+    padding: 0px 10px;
+    text-align: center;
+    width: fit-content;
+}
+.hb_show-products__product--content {
+    display: flex;
+    flex: 50%;
+    gap: 10px;
+}
+.hb_show-product__product--title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
