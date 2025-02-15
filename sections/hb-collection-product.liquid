@@ -1,6 +1,6 @@
 {{ "hb-common.css" |asset_url | stylesheet_tag }}
 {{ "hb-collection-product.css" |asset_url | stylesheet_tag }}
-<div class="hb_show-products" data-aos="zoom-out-right" data-aos-duration="2000">
+<div class="hb_show-products" js-ms-recomended-product data-aos="zoom-out-right" data-aos-duration="2000">
     <div class="page-width">
         <div class="hb_show-products__wrapper">
             <div class="hb_show-products__collections--content">
@@ -29,33 +29,35 @@
             </div>
             <div class="hb_show-products__product">
                 <div class="hb_show-products__product--wrapper" id="collections">
+                    {%- assign choose_collection = section.settings.choose_collections -%}
+                    {%- if choose_collection -%}
+                    {{ choose_collection.title}}
+                    {%- endif -%}
                     {%- for collection in collections limit: 3 -%}
                         {%- for product in collection.products limit: 6 -%}
-                            <div class="hb_show-products__product--content">
+                            <li js-recomended-product-list class="hb_show-products__product--content">
                                 <div class="hb_show-product__product--img">
-                                  {{ product.featured_image | image_url: width: 400 | image_tag }}
+                                {{ product.featured_image | image_url: width: 400 | image_tag }}
                                 </div>
                                 <div class="hb_show-product__product--detail">
-                                  {%- if product.type != blank -%}
-                                      <div class="hb_show-product__product--type">
-                                          {{ product.type }}
-                                      </div>
-                                  {%- endif -%}
-                                  <h3 class="hb_show-product__product--title">
-                                      {{ product.title }}
-                                  </h3>
-                                  <p>{{ product.price | money_without_trailing_zeros }}</p>
+                                {%- if product.type != blank -%}
+                                    <div class="hb_show-product__product--type">
+                                        {{ product.type }}
+                                    </div>
+                                {%- endif -%}
+                                <h3 class="hb_show-product__product--title">
+                                    {{ product.title }}
+                                </h3>
+                                <p>{{ product.price | money_without_trailing_zeros }}</p>
                                 </div>
-                            </div>
-                        {%- endfor -%} 
-                        {% for collection in product.collections %}
-                            {{ collection.title }}
-                        {% endfor %}
+                            </li>
+                            
+                        {%- endfor -%}
                     {%- endfor -%}
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 {% schema %}
   {
@@ -75,6 +77,11 @@
         "type": "richtext",
         "id": "para",
         "label": "Paragraph"
+      },
+      {
+        "type": "collection",
+        "id": "choose_collections",
+        "label": "Select Collections"
       }
     ],
     "presets": [
@@ -86,3 +93,6 @@
     ]
   }
 {% endschema %}
+<script>
+    
+</script>

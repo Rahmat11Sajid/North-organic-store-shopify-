@@ -21,3 +21,6 @@ img, svg {
     display: flex;
     align-items: center;
 }
+.hb-flex-reverse {
+    flex-direction: row-reverse;
+}

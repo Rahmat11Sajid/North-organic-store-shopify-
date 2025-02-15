@@ -106,3 +106,8 @@
     font-weight: 700;
     color: #000;
 }
+@media screen and (max-width: 767px) {
+    .hb_show-products__wrapper {
+        flex-direction: column;
+    }
+}

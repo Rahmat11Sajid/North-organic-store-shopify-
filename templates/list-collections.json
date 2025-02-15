@@ -2,16 +2,19 @@
   "sections": {
     "main": {
       "type": "hb-collection",
+      "settings": {}
+    },
+    "hb_collection_product_eTBymq": {
+      "type": "hb-collection-product",
       "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "columns_mobile": "2"
+        "slogan": "Fresh produce Categories",
+        "title": "Fresh produce Categories",
+        "para": "<p>Apparently we had reached a great height in the atmosphere, for the sky was a</p>"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "hb_collection_product_eTBymq"
   ]
 }

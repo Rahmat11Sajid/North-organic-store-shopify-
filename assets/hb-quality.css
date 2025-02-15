@@ -1,0 +1,18 @@
+.hb_quality {
+    margin-top: 50px;
+    padding: 50px 0;
+}
+.hb_quality__items {
+    gap: 20px;
+}
+.hb_quality__items--contents {
+    text-align: right;
+}
+.hb_quality__items--title {
+    color: #525252;
+    font-size: 22px;
+    font-weight: 700;
+}
+.hb_quality__items--img {
+    flex: 1;
+}

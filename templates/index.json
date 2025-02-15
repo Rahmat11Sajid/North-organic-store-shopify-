@@ -144,7 +144,46 @@
       "settings": {
         "slogan": "Fresh and Pure organic Foods",
         "title": "Fresh Categoriees Produce",
-        "para": "<p>Apparently we had reached a great height in the atmosphere, for the sky was a</p>"
+        "para": "<p>Apparently we had reached a great height in the atmosphere, for the sky was a</p>",
+        "choose_collections": ""
+      }
+    },
+    "hb_quality_cExGTJ": {
+      "type": "hb-quality",
+      "blocks": {
+        "quality_items_HFkYUT": {
+          "type": "quality_items",
+          "settings": {
+            "items_title": "Top Quality",
+            "desc": "<p>the quality is too good</p>",
+            "items_image": "shopify://shop_images/apple.png"
+          }
+        },
+        "quality_items_CeBVNA": {
+          "type": "quality_items",
+          "settings": {
+            "items_title": "Top Quality",
+            "desc": "<p>the quality is too good</p>",
+            "items_image": "shopify://shop_images/apple.png"
+          }
+        },
+        "quality_items_WpPDzV": {
+          "type": "quality_items",
+          "settings": {
+            "items_title": "Top Quality",
+            "desc": "<p>the quality is too good</p>",
+            "items_image": "shopify://shop_images/apple.png"
+          }
+        }
+      },
+      "block_order": [
+        "quality_items_HFkYUT",
+        "quality_items_CeBVNA",
+        "quality_items_WpPDzV"
+      ],
+      "settings": {
+        "bg_img": "shopify://shop_images/organic.png",
+        "center_image": "shopify://shop_images/apricot.png"
       }
     }
   },
@@ -154,6 +193,7 @@
     "hb_category_JKgfmL",
     "hb_feature_mHFAPB",
     "hb_deal_mHTG78",
-    "hb_collection_product_NakNYc"
+    "hb_collection_product_NakNYc",
+    "hb_quality_cExGTJ"
   ]
 }

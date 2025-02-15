@@ -1,0 +1,107 @@
+{{ "hb-common.css" | asset_url | stylesheet_tag }}
+{{ "hb-quality.css" | asset_url | stylesheet_tag }}
+<style>
+    .hb_quality {
+        background-image:url('{{ section.settings.bg_img | image_url: width: 1400 }}')
+    }
+</style>
+<div class="hb_quality" style=" ">
+    <div class="page-width">
+        <div class="hb_quality__wrapper hb-flex">
+            <div class="hb_quality__col-left">
+                {%- for block in section.blocks -%}
+                  <div class="hb_quality__items hb-flex">
+                    <div class="hb_quality__items--contents">
+                        {%- if block.settings.items_title != blank -%}
+                            <h3 class="hb_quality__items--title">
+                            {{ block.settings.items_title }}
+                            </h3>
+                        {%- endif -%}
+                        {%- if block.settings.desc != blank -%}
+                            <div class="hb_quality__items--para">
+                                {{ block.settings.desc }}
+                            </div>
+                        {%- endif -%}
+                    </div>
+                    <div class="hb_quality__items--img">
+                        {{ block.settings.items_image | image_url: width: 400 | image_tag }}
+                    </div>
+                  </div>
+                {%- endfor -%}
+            </div>
+            {%- if section.settings.center_image != blank -%}
+                <div class="hb_quality__image">
+                    {{ section.settings.center_image | image_url: width: 1200 | image_tag }}
+                </div>
+            {%- endif -%}
+            <div class="hb_quality__col-right">
+                {%- for block in section.blocks -%}
+                  <div class="hb_quality__items hb-flex hb-flex-reverse">
+                    <div class="hb_quality__items--contents">
+                        {%- if block.settings.items_title != blank -%}
+                            <h3 class="hb_quality__items--title">
+                            {{ block.settings.items_title }}
+                            </h3>
+                        {%- endif -%}
+                        {%- if block.settings.desc != blank -%}
+                            <div class="hb_quality__items--para">
+                                {{ block.settings.desc }}
+                            </div>
+                        {%- endif -%}
+                    </div>
+                    <div class="hb_quality__items--img">
+                        {{ block.settings.items_image | image_url: width: 400 | image_tag }}
+                    </div>
+                  </div>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Quality",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_img",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "center_image",
+        "label": "Image"
+      },
+    ],
+    "blocks": [
+      {
+        "name": "Items",
+        "type": "quality_items",
+        "settings": [
+           {
+             "type": "text",
+             "id": "items_title",
+             "label": "Title"
+           },
+           {
+             "type": "richtext",
+             "id": "desc",
+             "label": "Description"
+           },
+           {
+             "type": "image_picker",
+             "id": "items_image",
+             "label": "Image"
+           },
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Quality",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
