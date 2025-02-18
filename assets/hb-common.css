@@ -24,3 +24,9 @@ img, svg {
 .hb-flex-reverse {
     flex-direction: row-reverse;
 }
+@keyframes up-down {
+    0% {
+        /* transform: rotate(10deg); */
+        transform: translateY(10px);
+    }
+}

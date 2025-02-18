@@ -156,7 +156,7 @@
           "settings": {
             "items_title": "Top Quality",
             "desc": "<p>the quality is too good</p>",
-            "items_image": "shopify://shop_images/apple.png"
+            "items_image": "shopify://shop_images/organic3.png"
           }
         },
         "quality_items_CeBVNA": {
@@ -164,7 +164,7 @@
           "settings": {
             "items_title": "Top Quality",
             "desc": "<p>the quality is too good</p>",
-            "items_image": "shopify://shop_images/apple.png"
+            "items_image": "shopify://shop_images/organic_2.png"
           }
         },
         "quality_items_WpPDzV": {
@@ -183,7 +183,41 @@
       ],
       "settings": {
         "bg_img": "shopify://shop_images/organic.png",
-        "center_image": "shopify://shop_images/apricot.png"
+        "center_image": "shopify://shop_images/organic1.png"
+      }
+    },
+    "hb_faq_6byFNV": {
+      "type": "hb-faq",
+      "blocks": {
+        "faq_x3wnxi": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I know if my order has gone through?",
+            "answer": "<p>After placing your order, you will receive a confirmation email within a few minutes. This will contain all the details of your order. If you do not receive a confirmation, please check your spam folder or contact us.</p>"
+          }
+        },
+        "faq_xWjHe8": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I know if my order has gone through?",
+            "answer": "<p>After placing your order, you will receive a confirmation email within a few minutes. This will contain all the details of your order. If you do not receive a confirmation, please check your spam folder or contact us.</p>"
+          }
+        },
+        "faq_FPbWTq": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I know if my order has gone through?",
+            "answer": "<p>After placing your order, you will receive a confirmation email within a few minutes. This will contain all the details of your order. If you do not receive a confirmation, please check your spam folder or contact us.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_x3wnxi",
+        "faq_xWjHe8",
+        "faq_FPbWTq"
+      ],
+      "settings": {
+        "title": "FAQ"
       }
     }
   },
@@ -194,6 +228,7 @@
     "hb_feature_mHFAPB",
     "hb_deal_mHTG78",
     "hb_collection_product_NakNYc",
-    "hb_quality_cExGTJ"
+    "hb_quality_cExGTJ",
+    "hb_faq_6byFNV"
   ]
 }
