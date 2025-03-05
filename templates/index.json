@@ -219,6 +219,18 @@
       "settings": {
         "title": "FAQ"
       }
+    },
+    "hb_feature_collection_hRcDgg": {
+      "type": "hb-feature-collection",
+      "settings": {
+        "title": "<p>Feature <br/>collection</p>",
+        "choose_collection": [
+          "almond",
+          "fruits",
+          "shilajeet",
+          "custom"
+        ]
+      }
     }
   },
   "order": [
@@ -229,6 +241,7 @@
     "hb_deal_mHTG78",
     "hb_collection_product_NakNYc",
     "hb_quality_cExGTJ",
-    "hb_faq_6byFNV"
+    "hb_faq_6byFNV",
+    "hb_feature_collection_hRcDgg"
   ]
 }

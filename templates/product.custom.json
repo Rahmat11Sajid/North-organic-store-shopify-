@@ -1,0 +1,12 @@
+
+ {
+    "sections": {
+      "main": {
+        "type": "hb-pdp",
+      }
+    },
+    "order": [
+      "main",
+    ]
+  }
+  

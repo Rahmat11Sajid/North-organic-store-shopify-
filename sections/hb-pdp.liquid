@@ -1,0 +1,53 @@
+{{ "hb-common.css" |asset_url | stylesheet_tag }}
+{{ "hb-pdp.css" |asset_url | stylesheet_tag }}
+<div class="hb_product">
+    <div class="page-width">
+        <div class="hb_product__wrapper hb-flex">
+          <div class="hb_product__image">
+            {{ product.featured_image | image_url: width: 1200 | image_tag  }}
+          </div> 
+          <div class="hb_product__content">
+            <h3 class="hb_product__content--title">
+                {{ product.title }}
+            </h3>
+            {%- if product.description != blank -%}
+                <div class="hb_product__content--description">
+                    {{ product.description }}
+                </div>
+                {%- else -%}
+                    {% comment %} {{ section.settings.product_descr }} {% endcomment %}
+            {%- endif -%}
+            {%- assign current_product = product.selected_or_first_available_variant -%}
+            {%- unless product.has_only_default_variant -%}
+                {%- for variant in current_product.variants -%}
+                  {{ variant.title }}
+                {%- endfor -%}
+                <div class="hb_produt__content--price">
+                  </div>
+                {%- endunless -%}
+                <span>
+                  {{ current_product.price | money_without_trailing_zeros }}
+                </span> 
+          </div> 
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Product detail page",
+    "settings": [
+        {
+          "type": "richtext",
+          "id": "product_descr",
+          "label": "Product description"
+        },
+    ],  
+    "presets": [
+      {
+        "name": "Product detail page",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

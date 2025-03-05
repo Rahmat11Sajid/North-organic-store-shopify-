@@ -1,0 +1,78 @@
+{{ "feature-collection.css" | asset_url | stylesheet_tag }}
+{%- assign collection_list = section.settings.choose_collection -%}
+<style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+</style> 
+<div class="feature-collection">
+    <div class="page-width">
+        <div class="feature-collection__wrapper">
+            <div class="feature-collection__title  h-large">
+                {{ section.settings.title }}     
+            </div>
+            <div class="swiper feature-collection__slider" feature-collection-slider>    
+                <div class="swiper-wrapper">
+                    {%- for collection in collection_list -%}
+                        <a class="swiper-slide" href="{{ collection.url }}">
+                            <div class="feature-collection__slides">
+                                <div class="feature-collection__image">
+                                    {{ collection.featured_image | image_url: width: 490 | image_tag }}
+                                </div>
+                                <div class="feature-collection__slider-index">
+                                    {{ forloop.index }}
+                                </div>
+                                <div class="feature-collecction__slider-title">
+                                    {{ collection.title }}
+                                </div>
+                            </div>
+                        </a>
+                {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Feature Collection",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "collection_list",
+        "id": "choose_collection",
+        "label": "Choose Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Collection",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script>
+    new Swiper('[feature-collection-slider]', { 
+    slidesPerView: 3,
+    spaceBetween: 36,          
+    breakpoints: {
+        1024: {
+          slidesPerView: 3,    
+          spaceBetween: 34,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        480: {
+          slidesPerView: 1.1,
+          spaceBetween: 10,
+        }
+      }
+    });
+</script>

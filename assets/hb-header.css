@@ -1,5 +1,5 @@
 .hb_header {
-    background-color: var(--text-secondary-color);
+    background-color: #3f4eae;;
 }
 .hb_header__wrapper {
     justify-content: space-between;
@@ -13,7 +13,7 @@
     list-style-type: none;
 }
 .hb_header__nav--item {
-    color: var(--main-color);
+    color: #fff;
     text-decoration: none;
     font-size: 20px;
     cursor: pointer;
