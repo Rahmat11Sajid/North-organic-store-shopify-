@@ -1,87 +1,4 @@
-{{ "hb-common.css" | asset_url | stylesheet_tag }}
-{{ "hb-header.css" | asset_url | stylesheet_tag }}
-<header class="hb_header">
-    <div class="page-width">
-        <div class="hb_header__wrapper hb-flex">
-            {%- if section.settings.header_logo != blank -%}
-                <a href="{{ routes.root_url }}">
-                    <div class="hb_header__logo">
-                        {{ section.settings.header_logo | image_url: width: 400 | image_tag }}
-                    </div>
-                </a>
-            {%- endif -%}
-            <nav class="hb_header__nav">
-                <ul class="hb_header__nav-list hb-flex">
-                    {%- for link in linklists[section.settings.menu].links -%}
-                        <li class="hb_header__nav-items">
-                            <a class="hb_header__nav--item" href="{{ link.url }}"> {{ link.title }} </a>
-                        </li>
-                            {%- for sublink in link.links -%}
-                                <ul class="hb_header__nav--submenu">
-                                    <li>
-                                        <a href="{{ sublink.url }}">{{ sublink.title }}</a>
-                                    </li>
-                                    {%- for lastlink in sublink.links -%}
-                                        <li class="hb_header__nav--lastitem"><a href="{{ lastlink.url }}"> {{ lastlink.title }} </a></li>
-                                    {%- endfor -%}
-                                </ul>
-                            {%- endfor -%}
-                    {%- endfor -%}
-                </ul>
-                
-            </nav>
-            <div class="hb_header__icons hb-flex">
-                {%- for block in section.blocks -%}
-                    {%- if block.settings.header_search != blank -%}
-                        <div class="hb_header__icons--search">
-                           {{ block.settings.header_search | image_url: width: 200 | image_tag }}
-                        </div>
-                    {%- endif -%}
-                {%- endfor -%}
-            </div>
-        </div>
-    </div>
-</header>
-{% schema %}
-  {
-    "name": "Custom Header",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "header_logo",
-        "label": "Logo"
-      },
-      {
-        "type": "link_list",
-        "id": "menu",
-        "label": "Choose menu"
-      },
-      
-    ],
-    "blocks": [
-      {
-        "name": "Icons",
-        "type": "section",
-        "settings": [
-            {
-                "type": "image_picker",
-                "id": "header_search",
-                "label": "Search icon"
-            }
-            
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Header",
-        "settings": {
-        }
-      }
-    ]
-  }
-{% endschema %}
-
+{{ "hb-custom-header.css" | asset_url | stylesheet_tag }}
 {% comment %} <div class="hb_header-manu-section">
     <div class="hb_header-manu">
         <div class="page-width">
@@ -91,7 +8,6 @@
                     <ul class="hb_header__manu-list">
                         {%- for linkslist in section.settings.choose_manu.links -%}
                             {%- assign linktitle = linkslist.title | downcase -%}
-
                                 <li class="hb_header__manu-item">
                                     <a href="#">{{ linkslist.title }} 
                                         {%- if linkslist.links.size > 0 -%}
@@ -148,4 +64,64 @@
             </div>
         </div>
     </div>
-</div> {% endcomment %}
+</div>  {% endcomment %}
+<div class="hb_custom-header">
+    <div class="page-width">
+        <div class="hb_custom-header__wrapper hb-flex">
+            <div class="hb_custom-header__shope-name">
+               <a href="{{ routes.url }}">{{ shop.name }}</a> 
+            </div>
+            <ul class="hb_custom-header__menu hb-flex">
+                {%- for link in linklists[section.settings.choose_menu].links -%}
+                  <li class="hb_custom-header__menu--item hb-flex">
+                    <a href="{{ link.url }}" class="hb_custom-header__links">{{ link.title }}</a>
+                    {%- if link.links.size > 0  -%}
+                        <span class="drop_down_arrow">
+                            <svg width="8" height="6" viewBox="0 0 8 6">
+                                <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+                            </svg>
+                        </span>
+                    {%- endif -%}
+                  </li>
+                  {%- if link.links.size > 0 -%}
+                    <div class="hb_custom-header__menu-submenu">
+                      <ul class="hb_custom-header__menu--submenu-list">
+                          {%- for submenu in link.links -%}
+                              <li >
+                                  <a class="hb_custom-header__submenu-link" href="{{ submenu.url }}" class="hb_custom-header__links">{{ submenu.title }}</a>
+                                  {%- if submenu.links.size > 0  -%}
+                                      <span class="drop_down_arrow">
+                                          <svg width="8" height="6" viewBox="0 0 8 6">
+                                              <path d="m1 1.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+                                          </svg>
+                                      </span>
+                                  {%- endif -%}
+                                </li>
+                          {%- endfor -%}
+                      </ul>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+            </ul>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "header with megamenu",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "choose_menu",
+        "label": "Choose menu"
+      },
+    ],
+    "presets": [
+      {
+        "name": "header with megamenu",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}

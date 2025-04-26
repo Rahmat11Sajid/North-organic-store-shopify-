@@ -33,6 +33,10 @@
             {%- endfor -%}
         </div>
     </div>
+    <a href="{{ section.setttings.btn_link }}" class="add-to-cart-btn">
+            {{ section.settings.btn_text }}
+    </a>
+    
 </div>
 {% schema %}
   {
@@ -42,7 +46,17 @@
         "type": "text",
         "id": "title",
         "label": "Title"
-      }
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button url"
+      },
     ],
     "blocks": [
       {

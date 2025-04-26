@@ -13,9 +13,17 @@
                                 {%- assign discount = compare_price | minus: price -%}
                                 {%- assign percentage = discount | times: 100 | divided_by: compare_price  -%}
                                 <div class="hb_collection__sell">
-                                    {{ percentage }}%
+                                    {% comment %} {{ percentage }}% {% endcomment %}
                                 </div>
                             {%- endif -%}
+                            <div class="product-tag">
+                                {%- for tag in product.tags -%}
+                                    {%- assign tag_handle = tag | downcase -%}
+                                    {%- if tag_handle == "best seller" or tag_handle == "recommended" -%}
+                                        <span class="best-seller-tag">{{ tag_handle }}</span>
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            </div>
                             <a href="{{ collection.url }}" class="hb_collection__link">
                                 <div class="hb_collection__image">
                                     {{ product.featured_image | image_url: width: 600 | image_tag  }}

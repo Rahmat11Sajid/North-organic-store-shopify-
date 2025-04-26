@@ -42,3 +42,21 @@
     margin: 15px 0 0;
     display: none;
 }
+.add-to-cart-btn {
+    color: #fff;
+    border-radius: 48px;
+    display: block;
+    font-weight: 700;
+    font-size: 12px;
+    margin: 13px auto;
+    width: 100%;
+    text-align: center;
+    transition: .3s ease;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #1B4A26;
+    width: fit-content;
+    text-decoration: none;
+    padding: 12px 85px;
+    text-transform: capitalize;
+}

@@ -94,3 +94,21 @@
         max-width: 100%;
     }
 }
+.best-seller-tag {
+    position: absolute;
+    background: #efae3c;
+    border-radius: 6px;
+    padding: 6px 6px 4px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    display: flex;
+    align-items: self-start;
+    text-align: center;
+    color: #1b4a26;
+    text-transform: uppercase;
+    left: 10px;
+    top: 10px;
+    font-family: "Acumin";
+    gap: 4px;
+}
